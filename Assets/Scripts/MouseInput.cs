@@ -4,6 +4,7 @@ using System.Collections;
 public class MouseInput : MonoBehaviour
 {
     GameObject planeCollider;
+    public Object wall;
     void Awake() {
         planeCollider = new GameObject( "PlaneCollider" );
         BoxCollider box = planeCollider.AddComponent<BoxCollider>();
@@ -19,6 +20,7 @@ public class MouseInput : MonoBehaviour
             Vector3 gridPoint;
             if ( GetMousePositionOnGrid( out gridPoint ) ) {
                 Debug.Log( "Click: " + gridPoint );
+                Instantiate( wall, gridPoint, Quaternion.identity );
             }
         }
     }
@@ -30,9 +32,9 @@ public class MouseInput : MonoBehaviour
 
         if ( Physics.Raycast( inputRay, out hit, 1000f, layerMask ) ) {
             gridPoint = hit.point;
-            gridPoint.x = Mathf.Floor( gridPoint.x );
-            gridPoint.y = Mathf.Floor( gridPoint.y );
-            gridPoint.z = Mathf.Floor( gridPoint.z );
+            gridPoint.x = Mathf.Round( gridPoint.x );
+            gridPoint.y = Mathf.Round( gridPoint.y );
+            gridPoint.z = Mathf.Round( gridPoint.z );
             return true;
         }
 
