@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{EC7E6068-15E2-1B6C-3B71-A233718B57CA}</ProjectGuid>
+	<ProjectGuid>{9A411C9A-0D09-59AB-5984-9FA577165B3F}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,8 +47,6 @@
      <Compile Include="Assets\Editor\AssetWatcher.cs" />
      <Compile Include="Assets\Editor\AssetWatcherWindow.cs" />
      <Compile Include="Assets\Editor\ModifiedFiles.cs" />
-     <Compile Include="Assets\Editor\RefreshArt.cs" />
-     <Compile Include="Assets\Editor\RefreshExternal.cs" />
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\Managed\UnityEditor.Graphs.dll</HintPath>
  </Reference>
@@ -67,6 +65,10 @@
  <Reference Include="UnityEditor.Android.Extensions">
  <HintPath>C:\Program Files (x86)\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\EditorExtensions\UnityEditor.Android.Extensions.dll</HintPath>
  </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{F7D43DDA-664A-1F6E-3815-1717EEB08EA4}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
