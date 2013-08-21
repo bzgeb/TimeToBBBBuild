@@ -3,7 +3,9 @@ using System.Collections;
 
 public class MouseInput : MonoBehaviour
 {
+    GameObject hoverObject;
     GameObject planeCollider;
+    public Material hoverMaterial;
     public Object wall;
     void Awake() {
         planeCollider = new GameObject( "PlaneCollider" );
@@ -13,15 +15,30 @@ public class MouseInput : MonoBehaviour
         box.size = new Vector3( 1000, 0f, 1000 );
         planeCollider.layer = LayerMask.NameToLayer( "GroundLayer" );
         planeCollider.hideFlags = HideFlags.HideInHierarchy;
+
+        hoverObject = (GameObject)Instantiate( wall, Vector3.zero, Quaternion.identity );
+        hoverObject.hideFlags = HideFlags.HideInHierarchy;
+        hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
     }
 
     void Update() {
+        Vector3 gridPoint;
+
+        //if ( Input.GetMouseButtonDown( 0 ) ) {
+            //Vector3 gridPoint;
+            //if ( GetMousePositionOnGrid( out gridPoint ) ) {
+                //Debug.Log( "Click: " + gridPoint );
+                //Instantiate( wall, gridPoint, Quaternion.identity );
+            //}
+        //}
+
+        if ( GetMousePositionOnGrid( out gridPoint ) ) {
+            hoverObject.transform.position = gridPoint;
+        }
+
         if ( Input.GetMouseButtonDown( 0 ) ) {
-            Vector3 gridPoint;
-            if ( GetMousePositionOnGrid( out gridPoint ) ) {
-                Debug.Log( "Click: " + gridPoint );
-                Instantiate( wall, gridPoint, Quaternion.identity );
-            }
+            Debug.Log( "Click: " + gridPoint );
+            Instantiate( wall, gridPoint, Quaternion.identity );
         }
     }
 
