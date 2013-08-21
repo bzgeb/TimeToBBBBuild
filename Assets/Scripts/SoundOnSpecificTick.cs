@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SoundOnTick : MonoBehaviour
+public class SoundOnSpecificTick : ISoundOnTick
 {
+    public int playOnTick;
     void OnEnable() {
         EventManager.Register( "OnTick", OnTick );
     }
@@ -12,6 +13,7 @@ public class SoundOnTick : MonoBehaviour
     }
 
     void OnTick( params object[] args ) {
-        Debug.Log( "Tick!" );
+        int tick = (int)args[0];
+        Debug.Log( string.Format( "Tick {0}!", tick ) );
     }
 }

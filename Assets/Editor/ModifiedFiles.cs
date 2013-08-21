@@ -21,7 +21,7 @@ public class ModifiedFiles : ScriptableObject
 
         foreach ( FileMod fileMod in addedFiles ) {
             if ( fileMod.sourcePath == src ) {
-                Debug.Log("Already there"); 
+                Debug.Log( "Already there" );
                 duplicate = true;
             }
         }
@@ -30,7 +30,7 @@ public class ModifiedFiles : ScriptableObject
             FileMod fileModification = new FileMod();
             fileModification.sourcePath = src;
             fileModification.destinationPath = dst;
-            
+
             addedFiles.Add( fileModification );
         }
     }

@@ -19,8 +19,8 @@ public class MouseInput : MonoBehaviour
         hoverObject = (GameObject)Instantiate( wall, Vector3.zero, Quaternion.identity );
         hoverObject.hideFlags = HideFlags.HideInHierarchy;
         hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
-        if ( hoverObject.GetComponent<SoundOnTick>() != null ) {
-            hoverObject.GetComponent<SoundOnTick>().enabled = false;
+        if ( hoverObject.GetComponent<ISoundOnTick>() != null ) {
+            hoverObject.GetComponent<ISoundOnTick>().enabled = false;
         }
     }
 

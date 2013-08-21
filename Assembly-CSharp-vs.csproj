@@ -46,8 +46,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioSequencer.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
+     <Compile Include="Assets\Scripts\ISoundOnTick.cs" />
      <Compile Include="Assets\Scripts\MouseInput.cs" />
-     <Compile Include="Assets\Scripts\SoundOnTick.cs" />
+     <Compile Include="Assets\Scripts\SoundEachNTicks.cs" />
+     <Compile Include="Assets\Scripts\SoundOnSpecificTick.cs" />
      <None Include="Assets\External\RAIN\releasenotes.txt" />
      <None Include="Assets\External\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
  <Reference Include="RAINIndie">
