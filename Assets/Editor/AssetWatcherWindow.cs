@@ -4,7 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
-public class AssetWatcherWindow : EditorWindow {
+public class AssetWatcherWindow : EditorWindow
+{
 
     static public string externalFolderKey = "AssetWatcherExternalFolder";
     public string externalFolder;
@@ -46,11 +47,8 @@ public class AssetWatcherWindow : EditorWindow {
 
             if ( GUILayout.Button( "Push Changes" ) ) {
                 foreach ( FileMod modification in modifiedFiles.addedFiles ) {
-                    if ( Directory.Exists( modification.sourcePath ) ) {
-                        Directory.CreateDirectory( modification.destinationPath );
-                    } else {
-                        File.Copy( modification.sourcePath, modification.destinationPath, true );
-                    }
+                    Directory.CreateDirectory( Path.GetDirectoryName( modification.destinationPath ) );
+                    File.Copy( modification.sourcePath, modification.destinationPath, true );
                 }
                 modifiedFiles.addedFiles.Clear();
                 AssetDatabase.SaveAssets();
@@ -73,7 +71,9 @@ public class AssetWatcherWindow : EditorWindow {
                 }
                 GUILayout.EndHorizontal();
             }
-            GUILayout.Button( "Push Changes" );
+            if ( GUILayout.Button( "Push Changes" ) ) {
+                Debug.Log( "This doesn't work yet" );
+            }
             GUILayout.EndVertical();
         }
     }
