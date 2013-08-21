@@ -3,6 +3,7 @@ using System.Collections;
 
 public class SoundOnSpecificTick : ISoundOnTick
 {
+    public AudioClip clip;
     public int playOnTick;
     void OnEnable() {
         EventManager.Register( "OnTick", OnTick );
@@ -14,6 +15,9 @@ public class SoundOnSpecificTick : ISoundOnTick
 
     void OnTick( params object[] args ) {
         int tick = (int)args[0];
-        Debug.Log( string.Format( "Tick {0}!", tick ) );
+        if ( tick == playOnTick ) {
+            Debug.Log( string.Format( "Specific Tick {0}!", tick ) );
+            audio.PlayOneShot( clip );
+        }
     }
 }
