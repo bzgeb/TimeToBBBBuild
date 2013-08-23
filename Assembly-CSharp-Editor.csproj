@@ -50,6 +50,7 @@
      <Compile Include="Assets\External\RAIN\Editor\ScriptTemplates\ActionTemplate_CS.cs" />
      <None Include="Assets\AI\Resources\BehaviorTrees\Character.xml" />
      <None Include="Assets\External\RAIN\releasenotes.txt" />
+     <None Include="Assets\External\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\External\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
  <Reference Include="RAINIndie">
  <HintPath>Assets\External\RAIN\RAINIndie.dll</HintPath>

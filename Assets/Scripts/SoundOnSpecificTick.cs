@@ -6,6 +6,7 @@ public class SoundOnSpecificTick : ISoundOnTick
     public AudioClip clip;
     public int playOnTick;
     public ParticleSystem particleOnTick;
+    public string messageOnTick;
     void OnEnable() {
         EventManager.Register( "OnTick", OnTick );
     }
@@ -22,6 +23,10 @@ public class SoundOnSpecificTick : ISoundOnTick
 
             if ( particleOnTick != null ) {
                 particleOnTick.Play();
+            }
+
+            if ( messageOnTick != null && messageOnTick != "" ) {
+                SendMessage( messageOnTick, SendMessageOptions.DontRequireReceiver );
             }
         }
     }
