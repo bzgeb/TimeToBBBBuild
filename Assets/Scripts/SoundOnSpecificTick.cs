@@ -5,6 +5,7 @@ public class SoundOnSpecificTick : ISoundOnTick
 {
     public AudioClip clip;
     public int playOnTick;
+    public ParticleSystem particleOnTick;
     void OnEnable() {
         EventManager.Register( "OnTick", OnTick );
     }
@@ -18,6 +19,10 @@ public class SoundOnSpecificTick : ISoundOnTick
         if ( tick == playOnTick ) {
             Debug.Log( string.Format( "Specific Tick {0}!", tick ) );
             audio.PlayOneShot( clip );
+
+            if ( particleOnTick != null ) {
+                particleOnTick.Play();
+            }
         }
     }
 }
