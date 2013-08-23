@@ -49,12 +49,10 @@ public class AssetWatcher : AssetPostprocessor
             if ( File.GetLastWriteTime( externalFile ) < File.GetLastWriteTime( path ) ) {
                 modifiedFiles.AddFile( path, externalFile );
                 AssetDatabase.SaveAssets();
-                //File.Copy( path, externalFile );
             }
         } else {
             modifiedFiles.AddFile( path, externalFile );
             AssetDatabase.SaveAssets();
-            //File.Copy( path, externalFile );
         }
     }
 
@@ -69,8 +67,4 @@ public class AssetWatcher : AssetPostprocessor
             AssetDatabase.SaveAssets();
         }
     }
-
-    //static void OnMove( string src, string dst ) {
-
-    //}
 }
