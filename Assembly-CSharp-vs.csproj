@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\ShakeTower.cs" />
      <Compile Include="Assets\Scripts\SoundEachNTicks.cs" />
      <Compile Include="Assets\Scripts\SoundOnSpecificTick.cs" />
+     <Compile Include="Assets\Scripts\Towers.cs" />
      <None Include="Assets\AI\Resources\BehaviorTrees\Character.xml" />
      <None Include="Assets\External\RAIN\releasenotes.txt" />
      <None Include="Assets\External\iTween\ReadMe!\ReadMe!.txt" />

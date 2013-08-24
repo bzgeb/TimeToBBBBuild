@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using RainComponent = RAIN.Core.RAINComponent;
 
 public class MouseInput : MonoBehaviour
 {
@@ -16,27 +17,23 @@ public class MouseInput : MonoBehaviour
         planeCollider.layer = LayerMask.NameToLayer( "GroundLayer" );
         planeCollider.hideFlags = HideFlags.HideInHierarchy;
 
-        hoverObject = (GameObject)Instantiate( wall, Vector3.zero, Quaternion.identity );
-        hoverObject.hideFlags = HideFlags.HideInHierarchy;
-        hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
-
-        // Disable all the sound scripts
-        ISoundOnTick[] soundScripts = hoverObject.GetComponents<ISoundOnTick>();
-        foreach ( ISoundOnTick script in soundScripts ) {
-            script.enabled = false;
+        if ( wall != null ) {
+            SetHoverObject( wall );
         }
+    }
+
+    void OnEnable() {
+        EventManager.Register( "SendNextTower", SetHoverObject );
+        EventManager.Register( "SendPreviousTower", SetHoverObject );
+    }
+
+    void OnDisable() {
+        EventManager.Register( "SendNextTower", SetHoverObject );
+        EventManager.Register( "SendPreviousTower", SetHoverObject );
     }
 
     void Update() {
         Vector3 gridPoint;
-
-        //if ( Input.GetMouseButtonDown( 0 ) ) {
-            //Vector3 gridPoint;
-            //if ( GetMousePositionOnGrid( out gridPoint ) ) {
-                //Debug.Log( "Click: " + gridPoint );
-                //Instantiate( wall, gridPoint, Quaternion.identity );
-            //}
-        //}
 
         if ( GetMousePositionOnGrid( out gridPoint ) ) {
             hoverObject.transform.position = gridPoint;
@@ -45,6 +42,14 @@ public class MouseInput : MonoBehaviour
         if ( Input.GetMouseButtonDown( 0 ) ) {
             Debug.Log( "Click: " + gridPoint );
             Instantiate( wall, gridPoint, Quaternion.identity );
+        }
+
+        if ( Input.GetAxis( "Mouse ScrollWheel" ) > 0 ) {
+            EventManager.Push( "RequestNextTower" );
+        }
+
+        if ( Input.GetAxis( "Mouse ScrollWheel" ) < 0 ) {
+            EventManager.Push( "RequestPreviousTower" );
         }
     }
 
@@ -63,5 +68,36 @@ public class MouseInput : MonoBehaviour
 
         gridPoint = Vector3.zero;
         return false;
+    }
+
+    void SetHoverObject( params object[] args ) {
+        wall = (Object)args[0];
+
+        if ( hoverObject != null ) {
+            Destroy( hoverObject );
+        }
+
+        Vector3 gridPoint;
+        Vector3 startPosition = Vector3.zero;
+        if ( GetMousePositionOnGrid( out gridPoint ) ) {
+            startPosition = gridPoint;
+        }
+
+        hoverObject = (GameObject)Instantiate( wall, startPosition, Quaternion.identity );
+        //hoverObject.hideFlags = HideFlags.HideInHierarchy;
+        hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
+
+
+
+        // Disable all the sound scripts
+        ISoundOnTick[] soundScripts = hoverObject.GetComponents<ISoundOnTick>();
+        foreach ( ISoundOnTick script in soundScripts ) {
+            script.enabled = false;
+        }
+
+        RainComponent[] rainComponents = hoverObject.GetComponents<RainComponent>();
+        foreach ( RainComponent rainComponent in rainComponents ) {
+            Destroy( rainComponent );
+        }
     }
 }
