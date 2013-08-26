@@ -7,7 +7,7 @@ public class MouseInput : MonoBehaviour
     GameObject hoverObject;
     GameObject planeCollider;
     public Material hoverMaterial;
-    public Object wall;
+    public GameObject wall;
     void Awake() {
         planeCollider = new GameObject( "PlaneCollider" );
         BoxCollider box = planeCollider.AddComponent<BoxCollider>();
@@ -41,7 +41,7 @@ public class MouseInput : MonoBehaviour
 
         if ( Input.GetMouseButtonDown( 0 ) ) {
             Debug.Log( "Click: " + gridPoint );
-            Instantiate( wall, gridPoint, Quaternion.identity );
+            Instantiate( wall, gridPoint, wall.transform.rotation );
         }
 
         if ( Input.GetAxis( "Mouse ScrollWheel" ) > 0 ) {
@@ -71,7 +71,7 @@ public class MouseInput : MonoBehaviour
     }
 
     void SetHoverObject( params object[] args ) {
-        wall = (Object)args[0];
+        wall = (GameObject)args[0];
 
         if ( hoverObject != null ) {
             Destroy( hoverObject );
@@ -83,7 +83,7 @@ public class MouseInput : MonoBehaviour
             startPosition = gridPoint;
         }
 
-        hoverObject = (GameObject)Instantiate( wall, startPosition, Quaternion.identity );
+        hoverObject = (GameObject)Instantiate( wall, startPosition, wall.transform.rotation );
         //hoverObject.hideFlags = HideFlags.HideInHierarchy;
         hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
 

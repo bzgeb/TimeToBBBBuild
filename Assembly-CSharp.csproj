@@ -49,6 +49,7 @@
      <Compile Include="Assets\External\iTween\Sample\RotateSample.cs" />
      <Compile Include="Assets\External\iTween\Sample\SampleInfo.cs" />
      <Compile Include="Assets\Scripts\AudioSequencer.cs" />
+     <Compile Include="Assets\Scripts\BuildGround.cs" />
      <Compile Include="Assets\Scripts\Desire.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\ISoundOnTick.cs" />

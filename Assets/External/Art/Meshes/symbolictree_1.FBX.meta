@@ -1,20 +1,13 @@
 fileFormatVersion: 2
-guid: 02e7623c14b60ef49954ff1c945f5d16
+guid: 686b305db831be24da51bc086585a3b0
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
-    100000: Camera
-    100002: Cube
-    100004: Lamp
-    100006: //RootNode
-    400000: Camera
-    400002: Cube
-    400004: Lamp
-    400006: //RootNode
-    2300000: Cube
-    3300000: Cube
-    4300000: Cube
-    7400000: Default Take
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: symbolictree_1
     9500000: //RootNode
   materials:
     importMaterials: 0
