@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_WIN;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_2_0;UNITY_4_2;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE_OSX;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;UNITY_STANDALONE;ENABLE_MONO;ENABLE_TERRAIN;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GAMECENTER;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_2_0;UNITY_4_2;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_OSX</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -37,10 +37,10 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -50,23 +50,24 @@
      <Compile Include="Assets\External\iTween\Sample\SampleInfo.cs" />
      <Compile Include="Assets\Scripts\AudioSequencer.cs" />
      <Compile Include="Assets\Scripts\BuildGround.cs" />
+     <Compile Include="Assets\Scripts\CharacterSpawner.cs" />
      <Compile Include="Assets\Scripts\Desire.cs" />
      <Compile Include="Assets\Scripts\EventManager.cs" />
      <Compile Include="Assets\Scripts\ISoundOnTick.cs" />
      <Compile Include="Assets\Scripts\MouseInput.cs" />
+     <Compile Include="Assets\Scripts\Needs.cs" />
      <Compile Include="Assets\Scripts\SetAnimationSpeed.cs" />
      <Compile Include="Assets\Scripts\ShakeTower.cs" />
      <Compile Include="Assets\Scripts\SoundEachNTicks.cs" />
      <Compile Include="Assets\Scripts\SoundOnSpecificTick.cs" />
      <Compile Include="Assets\Scripts\Towers.cs" />
      <None Include="Assets\AI\Resources\BehaviorTrees\Character.xml" />
-     <None Include="Assets\External\RAIN\releasenotes.txt" />
      <None Include="Assets\External\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\External\RAIN\Editor\ScriptTemplates\BehaviorTreeTemplate.xml" />
- <Reference Include="RAINIndie">
+ <Reference Include="Assets\External\RAIN\RAINIndie">
  <HintPath>Assets\External\RAIN\RAINIndie.dll</HintPath>
  </Reference>
- <Reference Include="Recast">
+ <Reference Include="Assets\External\RAIN\Recast">
  <HintPath>Assets\External\RAIN\Recast.dll</HintPath>
  </Reference>
   </ItemGroup>
