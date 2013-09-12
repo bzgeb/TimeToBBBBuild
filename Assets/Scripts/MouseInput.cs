@@ -39,7 +39,7 @@ public class MouseInput : MonoBehaviour
             hoverObject.transform.position = gridPoint;
         }
 
-        if ( Input.GetMouseButtonDown( 0 ) ) {
+        if ( Input.GetMouseButtonDown( 0 ) && Camera.main.pixelRect.Contains( Input.mousePosition ) ) {
             Debug.Log( "Click: " + gridPoint );
             Instantiate( wall, gridPoint, wall.transform.rotation );
         }

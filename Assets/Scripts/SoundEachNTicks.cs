@@ -7,6 +7,8 @@ public class SoundEachNTicks : ISoundOnTick
     public int playEachNTicks;
     public ParticleSystem particleOnTick;
     public string messageOnTick;
+    public int pitchIndex;
+
     void OnEnable() {
         EventManager.Register( "OnTick", OnTick );
     }
@@ -19,7 +21,9 @@ public class SoundEachNTicks : ISoundOnTick
         int tick = (int)args[0];
         if ( tick % playEachNTicks == 0 ) {
             Debug.Log( string.Format( "Each N Ticks {0}!", tick ) );
-            audio.PlayOneShot( clip );
+            audio.clip = clip;
+            audio.pitch = Pitch.pitches[pitchIndex];
+            audio.Play();
 
             if ( particleOnTick != null ) {
                 particleOnTick.Play();
