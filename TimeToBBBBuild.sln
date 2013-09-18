@@ -7,6 +7,8 @@ Project("{24E1466E-8056-F918-D166-0E2B81E98083}") = "TimeToBBBBuild", "Assembly-
 EndProject
 Project("{24E1466E-8056-F918-D166-0E2B81E98083}") = "TimeToBBBBuild", "Assembly-Boo-Editor.booproj", "{BDB4AE09-6FA4-F7C2-5278-5A87F464EB61}"
 EndProject
+Project("{24E1466E-8056-F918-D166-0E2B81E98083}") = "TimeToBBBBuild", "Assembly-UnityScript.unityproj", "{DEC0A6CD-C0D3-1A07-45CD-BFE06222C5B1}"
+EndProject
 Project("{24E1466E-8056-F918-D166-0E2B81E98083}") = "TimeToBBBBuild", "Assembly-UnityScript-Editor.unityproj", "{1C20C457-7E6B-6351-EA72-35FCECC62DDB}"
 EndProject
 Global
@@ -27,6 +29,10 @@ Global
 		{BDB4AE09-6FA4-F7C2-5278-5A87F464EB61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDB4AE09-6FA4-F7C2-5278-5A87F464EB61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDB4AE09-6FA4-F7C2-5278-5A87F464EB61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC0A6CD-C0D3-1A07-45CD-BFE06222C5B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC0A6CD-C0D3-1A07-45CD-BFE06222C5B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC0A6CD-C0D3-1A07-45CD-BFE06222C5B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC0A6CD-C0D3-1A07-45CD-BFE06222C5B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1C20C457-7E6B-6351-EA72-35FCECC62DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1C20C457-7E6B-6351-EA72-35FCECC62DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C20C457-7E6B-6351-EA72-35FCECC62DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,7 +41,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																													GlobalSection(MonoDevelopProperties) = preSolution
+																																																											GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

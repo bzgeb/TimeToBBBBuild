@@ -31,11 +31,11 @@ public class Towers : MonoBehaviour
 
     void RequestNextTower( params object[] args ) {
         GameObject nextTower = GetNextTower();
-        EventManager.Push( "SendNextTower", nextTower );
+        EventManager.Push( "SendNextTower", nextTower, previouslySelectedIndex );
     }
 
     void RequestPreviousTower( params object[] args ) {
         GameObject previousTower = GetPreviousTower();
-        EventManager.Push( "SendPreviousTower", previousTower );
+        EventManager.Push( "SendPreviousTower", previousTower, previouslySelectedIndex );
     }
 }

@@ -8,6 +8,7 @@ public class MouseInput : MonoBehaviour
     GameObject planeCollider;
     public Material hoverMaterial;
     public GameObject wall;
+    int towerIndex;
     void Awake() {
         planeCollider = new GameObject( "PlaneCollider" );
         BoxCollider box = planeCollider.AddComponent<BoxCollider>();
@@ -18,7 +19,7 @@ public class MouseInput : MonoBehaviour
         planeCollider.hideFlags = HideFlags.HideInHierarchy;
 
         if ( wall != null ) {
-            SetHoverObject( wall );
+            SetHoverObject( wall, 0 );
         }
     }
 
@@ -35,13 +36,13 @@ public class MouseInput : MonoBehaviour
     void Update() {
         Vector3 gridPoint;
 
-        if ( GetMousePositionOnGrid( out gridPoint ) ) {
+        if ( hoverObject != null && GetMousePositionOnGrid( out gridPoint ) ) {
             hoverObject.transform.position = gridPoint;
         }
 
-        if ( Input.GetMouseButtonDown( 0 ) && Camera.main.pixelRect.Contains( Input.mousePosition ) ) {
+        if ( hoverObject != null && Input.GetMouseButtonDown( 0 ) && Camera.main.pixelRect.Contains( Input.mousePosition ) ) {
             Debug.Log( "Click: " + gridPoint );
-            Instantiate( wall, gridPoint, wall.transform.rotation );
+            PlaceObject( wall, gridPoint, wall.transform.rotation, towerIndex );
         }
 
         if ( Input.GetAxis( "Mouse ScrollWheel" ) > 0 ) {
@@ -72,6 +73,7 @@ public class MouseInput : MonoBehaviour
 
     void SetHoverObject( params object[] args ) {
         wall = (GameObject)args[0];
+        towerIndex = (int)args[1];
 
         if ( hoverObject != null ) {
             Destroy( hoverObject );
@@ -84,7 +86,7 @@ public class MouseInput : MonoBehaviour
         }
 
         hoverObject = (GameObject)Instantiate( wall, startPosition, wall.transform.rotation );
-        //hoverObject.hideFlags = HideFlags.HideInHierarchy;
+        hoverObject.hideFlags = HideFlags.HideInHierarchy;
         hoverObject.GetComponent<MeshRenderer>().material = hoverMaterial;
 
 
@@ -98,6 +100,16 @@ public class MouseInput : MonoBehaviour
         RainComponent[] rainComponents = hoverObject.GetComponents<RainComponent>();
         foreach ( RainComponent rainComponent in rainComponents ) {
             Destroy( rainComponent );
+        }
+    }
+
+    void PlaceObject( GameObject obj, Vector3 gridPosition, Quaternion rotation, int objIndex ) {
+        int x = (int)gridPosition.x;
+        int y = (int)gridPosition.z;
+        Debug.Log( "X: " + x + " Y: " + y ); 
+        if ( Field.data[x, y] == -1 ) {
+            Field.data[x, y] = objIndex;
+            Instantiate( obj, gridPosition, rotation );
         }
     }
 }
